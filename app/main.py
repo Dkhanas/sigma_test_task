@@ -46,7 +46,7 @@ async def redirect_to_domain(path: str, request: Request):
     pool_id = query_params.pop("pool_id", None)
     if pool_id not in initial_domain_pools:
         raise HTTPException(status_code=400, detail="Invalid pool ID")
-
+    # TODO: add sorting with query and get rid of manual sorting
     domain_pool, sorted_domains = sort_domains_by_weight(pool_id)
     if not sorted_domains:
         domain_pools[pool_id] = deepcopy(initial_domain_pools[pool_id])
@@ -74,6 +74,7 @@ async def redirect_to_domain(path: str, request: Request):
 
 if __name__ == "__main__":
     import uvicorn
+
     # TODO: add redis cache
     # TODO: add api to CRUD domains and pools
     # TODO: add cache invalidation on Pools changing
