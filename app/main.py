@@ -74,6 +74,10 @@ async def redirect_to_domain(path: str, request: Request):
 
 if __name__ == "__main__":
     import uvicorn
+    # TODO: add redis cache
+    # TODO: add api to CRUD domains and pools
+    # TODO: add cache invalidation on Pools changing
+    # TODO: add api to GET log info (add filtering)
 
     initial_domain_pools = Pool.load_pools()
     domain_pools = deepcopy(initial_domain_pools)
