@@ -14,3 +14,8 @@ docker-compose up -d
 docker exec -it <container ID> python fixtures.py
 docker-compose up -d
 ```
+
+## Open in browser
+```
+http://localhost:8080/
+```
